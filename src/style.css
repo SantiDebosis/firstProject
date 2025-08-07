@@ -1,0 +1,716 @@
+/* General styles */
+:root {
+    --primary-color: #000000; /* Black background */
+    --secondary-color: #FFFFFF; /* White text */
+    --accent-color: #FFD700; /* Yellow details */
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    margin: 0;
+    line-height: 1.5; /* Slightly reduced line height */
+}
+
+.container {
+    max-width: 1100px; /* Slightly smaller max width for content */
+    margin: 0 auto;
+    padding: 0 0.75rem; /* Reduced padding */
+}
+
+.section {
+    padding: 3rem 0.75rem; /* Reduced section padding */
+    text-align: center;
+}
+
+@media (min-width: 768px) {
+    .section {
+        padding: 4rem 2rem; /* Adjusted padding for medium screens */
+    }
+}
+
+h1, h2, h3 {
+    color: var(--secondary-color);
+    margin-bottom: 0.75rem; /* Reduced margin */
+    font-weight: bold;
+}
+
+h1 {
+    font-size: 2.25rem; /* Smaller font size */
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+}
+
+h2 {
+    font-size: 2rem; /* Smaller font size */
+    margin-bottom: 2.5rem; /* Reduced margin */
+    color: var(--accent-color); /* Section titles in yellow */
+}
+
+h3 {
+    font-size: 1.5rem; /* Smaller font size */
+    margin-bottom: 0.5rem;
+}
+
+p {
+    font-size: 1rem; /* Smaller paragraph font size */
+    line-height: 1.6;
+}
+
+/* Navbar styles */
+.navbar {
+    background-color: var(--primary-color);
+    padding: 0.75rem 0; /* Reduced padding */
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5); /* Slightly smaller shadow */
+}
+
+.navbar-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.navbar-brand {
+    font-size: 1.5rem; /* Smaller font size */
+    font-weight: bolder;
+    color: var(--accent-color);
+    padding: 0.4rem 0.6rem;
+    border-radius: 0.4rem;
+    transition: color 0.3s ease;
+    text-decoration: none;
+}
+
+.navbar-brand:hover {
+    color: var(--secondary-color);
+}
+
+.navbar-toggle {
+    display: block; /* Ensures it's visible on mobile */
+    cursor: pointer;
+    padding: 0.75rem;
+    border: 2px solid var(--accent-color); /* Increased border thickness and made it yellow */
+    border-radius: 0.25rem;
+    color: var(--accent-color); /* Changed SVG lines color to yellow for visibility */
+    transition: all 0.3s ease;
+}
+
+.navbar-toggle:hover {
+    color: var(--secondary-color); /* Hover effect for lines */
+    border-color: var(--secondary-color); /* Hover effect for border */
+}
+
+.navbar-toggle svg {
+    height: 1.5rem;
+    width: 1.5rem;
+}
+
+.navbar-links {
+    width: 100%;
+    display: none; /* Hidden by default for mobile */
+    transition: max-height 0.3s ease-out;
+    overflow: hidden;
+}
+
+.navbar-links.active {
+    display: block; /* Show when active */
+    max-height: 250px; /* Adjusted max-height */
+}
+
+.navbar-links ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.navbar-links ul li {
+    margin-top: 0.75rem; /* Reduced margin */
+}
+
+.navbar-links ul li a {
+    display: block;
+    color: var(--secondary-color);
+    padding: 0.4rem 0.8rem; /* Reduced padding */
+    border-radius: 0.5rem;
+    transition: color 0.3s ease, background-color 0.3s ease;
+    text-decoration: none;
+    font-size: 0.95rem; /* Slightly smaller font size */
+}
+
+.navbar-links ul li a:hover {
+    color: var(--accent-color);
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+@media (min-width: 1024px) {
+    .navbar-toggle {
+        display: none; /* Hide on desktop */
+    }
+    .navbar-links {
+        display: flex;
+        width: auto;
+    }
+    .navbar-links ul {
+        flex-direction: row;
+        margin-top: 0;
+    }
+    .navbar-links ul li {
+        margin-top: 0;
+        margin-left: 1rem; /* Reduced margin */
+    }
+}
+
+/* Button styles */
+.btn {
+    display: inline-block;
+    padding: 0.6rem 1.2rem; /* Reduced padding */
+    border-radius: 9999px; /* Full rounded */
+    font-weight: bold;
+    text-decoration: none;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin: 0.5rem;
+    font-size: 0.9rem; /* Smaller font size */
+}
+
+.btn-primary {
+    background-color: var(--accent-color);
+    color: var(--primary-color);
+}
+
+.btn-primary:hover {
+    background-color: #E6B800; /* Slightly darker yellow */
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background-color: #333333; /* Dark gray for secondary button */
+    color: var(--secondary-color);
+}
+
+.btn-secondary:hover {
+    background-color: #444444; /* Slightly lighter gray */
+    transform: translateY(-2px);
+}
+
+/* Hero Section (Inicio) */
+.hero-section {
+    position: relative;
+    background-image: url('/public/pexels-tima-miroshnichenko-5327534.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--secondary-color);
+    padding-top: 56px; /* Adjust for fixed navbar height (approx. 56px for smaller padding) */
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.6); /* Dark overlay */
+}
+
+.hero-content {
+    position: relative;
+    z-index: 10;
+    padding: 1rem;
+    max-width: 800px; /* Slightly smaller max width */
+}
+
+.hero-content h1 {
+    font-size: 2.5rem; /* Smaller font size */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+.hero-buttons {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1rem; /* Reduced gap */
+    margin-top: 1.5rem; /* Reduced margin */
+}
+
+@media (min-width: 768px) {
+    .hero-content h1 {
+        font-size: 3.5rem; /* Adjusted for medium screens */
+    }
+    .hero-buttons {
+        flex-direction: row;
+    }
+}
+
+/* About Section (Sobre Mí) */
+.about-section {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+}
+
+.about-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem; /* Reduced gap */
+}
+
+.about-image {
+    display: flex;
+    justify-content: center;
+}
+
+.about-image img {
+    width: 14rem; /* Smaller image size */
+    height: 14rem; /* Smaller image size */
+    object-fit: contain;
+    border: 3px solid var(--accent-color);
+    border-radius: 50%;
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.3); /* Slightly smaller shadow */
+    transition: transform 0.3s ease-in-out;
+}
+
+.about-image img:hover {
+    transform: scale(1.05);
+}
+
+.about-text {
+    text-align: center;
+}
+
+@media (min-width: 1024px) {
+    .about-content {
+        flex-direction: row;
+        text-align: left;
+    }
+    .about-image {
+        flex: 1;
+    }
+    .about-text {
+        flex: 1;
+        text-align: left;
+    }
+    .about-image img {
+        width: 16rem; /* Adjusted for larger screens */
+        height: 16rem; /* Adjusted for larger screens */
+    }
+}
+
+/* Services Section */
+.services-section {
+    background-color: #1a1a1a; /* Slightly lighter black for contrast */
+    color: var(--secondary-color);
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem; /* Reduced gap */
+    justify-items: center;
+}
+
+.service-card {
+    background-color: #222222; /* Even lighter black for cards */
+    border-radius: 0.75rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    padding: 2rem; /* Reduced padding */
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    width: 100%;
+    max-width: 350px; /* Smaller max width */
+    box-sizing: border-box; /* Ensure padding is included in width */
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+}
+
+.service-card .icon {
+    font-size: 2.5rem; /* Smaller icon size */
+    color: var(--accent-color);
+    margin-bottom: 0.75rem;
+}
+
+.service-card h3 {
+    color: var(--accent-color);
+    font-size: 1.35rem; /* Smaller font size */
+    margin-bottom: 0.75rem;
+}
+
+.service-card p {
+    font-size: 0.9rem; /* Smaller font size */
+    color: #cccccc;
+}
+
+@media (min-width: 768px) {
+    .services-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* Plans Section */
+.plans-section {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+}
+
+.plans-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem; /* Reduced gap */
+    justify-items: center;
+}
+
+.plan-card {
+    background-color: #222222;
+    border-radius: 0.75rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    padding: 2rem; /* Reduced padding */
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    width: 100%;
+    max-width: 350px; /* Smaller max width */
+    text-align: left;
+    box-sizing: border-box; /* Ensure padding is included in width */
+}
+
+.plan-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+}
+
+.plan-card h3 {
+    color: var(--accent-color);
+    font-size: 1.6rem; /* Smaller font size */
+    margin-bottom: 1rem;
+}
+
+.plan-card .price {
+    font-size: 2.25rem; /* Smaller font size */
+    font-weight: bolder;
+    color: var(--secondary-color);
+    margin-bottom: 1.25rem;
+}
+
+.plan-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    color: #cccccc;
+}
+
+.plan-card ul li {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 0.6rem; /* Reduced margin */
+    font-size: 0.95rem; /* Smaller font size */
+}
+
+.plan-card ul li .check-icon {
+    color: #4CAF50; /* Green checkmark */
+    margin-right: 0.5rem;
+    font-size: 1.1rem; /* Smaller icon size */
+    flex-shrink: 0;
+}
+
+/* Specific styles for the recommended plan card */
+.plan-card.recommended-plan {
+    border: 3px solid var(--accent-color); /* Yellow border */
+    position: relative; /* Needed for absolute positioning of the label */
+    overflow: hidden; /* Ensures the label doesn't spill out if too big */
+    padding-top: 3rem; /* Give more space at the top for the ribbon */
+}
+
+.plan-card.recommended-plan::before {
+    content: "RECOMENDADO";
+    position: absolute;
+    top: 15px; /* Adjusted distance from the top */
+    right: -25px; /* Adjusted to ensure visibility after rotation */
+    background-color: var(--accent-color);
+    color: var(--primary-color);
+    font-size: 0.7rem; /* Smaller font for the label */
+    font-weight: bold;
+    padding: 0.25rem 1.5rem; /* Adjusted padding for the ribbon effect */
+    transform: rotate(45deg); /* Rotate it */
+    transform-origin: 100% 0%; /* Rotate around its top-right corner */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    z-index: 1;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+@media (min-width: 768px) {
+    .plans-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .plans-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* Videos Section */
+.videos-section {
+    background-color: #1a1a1a;
+    color: var(--secondary-color);
+}
+
+.videos-carousel {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding-bottom: 0.75rem; /* Reduced padding */
+    -webkit-overflow-scrolling: touch; /* For smoother scrolling on iOS */
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none;  /* IE and Edge */
+    gap: 1.5rem; /* Added gap for spacing between videos */
+}
+
+.videos-carousel::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
+}
+
+.video-item {
+    flex-shrink: 0;
+    width: calc(100% - 1.5rem); /* Full width minus gap on small screens */
+    padding: 0.75rem; /* Reduced padding */
+    scroll-snap-align: start;
+    box-sizing: border-box; /* Ensure padding is included in width */
+    background-color: #222222; /* Card background */
+    border-radius: 0.75rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+@media (min-width: 768px) {
+    .video-item {
+        width: calc(33.333% - 1.5rem); /* Adjusted width for 3 items per row with gap */
+        /* No need for margin here if using gap on parent */
+    }
+}
+
+.video-wrapper {
+    position: relative;
+    width: 100%;
+    padding-bottom: 65%; /* Made videos taller (from 56.25% to 65%) */
+    height: 0;
+    overflow: hidden;
+    border-radius: 0.75rem;
+    background-color: #000; /* Black background for video area */
+}
+
+.video-wrapper video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 0.75rem;
+}
+
+.video-info {
+    padding: 0.75rem 0; /* Reduced padding */
+    text-align: center;
+}
+
+.video-name {
+    font-weight: bold;
+    font-size: 1rem; /* Smaller font size */
+    color: var(--secondary-color);
+}
+
+.video-sport {
+    font-size: 0.85rem; /* Smaller font size */
+    color: #cccccc;
+}
+
+/* Carousel Pagination Dots */
+.carousel-dots-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 1.5rem; /* Space between carousel and dots */
+    padding: 0.5rem 0;
+}
+
+.carousel-dots-container .dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #555; /* Default dot color */
+    margin: 0 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.carousel-dots-container .dot.active {
+    background-color: var(--accent-color); /* Active dot color */
+    transform: scale(1.2); /* Slightly larger for active dot */
+}
+
+
+/* Opinions Section */
+.opinions-section {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+}
+
+.carousel-container {
+    position: relative;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.opinions-carousel {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding-bottom: 0.75rem; /* Reduced padding */
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none;  /* IE and Edge */
+    gap: 1.5rem; /* Added gap for spacing between opinion cards */
+}
+
+.opinions-carousel::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
+}
+
+.opinion-card {
+    flex-shrink: 0;
+    width: calc(100% - 1.5rem); /* Full width minus gap on small screens */
+    padding: 1.5rem; /* Reduced padding */
+    background-color: #222222;
+    border-radius: 0.75rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    scroll-snap-align: start;
+    box-sizing: border-box; /* Ensure padding is included in width */
+    min-height: 10rem; /* Smaller min-height */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: left;
+}
+
+.opinion-card p {
+    font-style: italic;
+    margin-bottom: 1rem;
+    color: #cccccc;
+    font-size: 0.95rem; /* Smaller font size */
+}
+
+.opinion-author {
+    font-weight: bold;
+    text-align: right;
+    color: var(--accent-color);
+    font-size: 0.9rem; /* Smaller font size */
+}
+
+.carousel-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #333333;
+    color: var(--secondary-color);
+    border: none;
+    padding: 0.6rem 0.8rem; /* Reduced padding */
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.1rem; /* Smaller font size */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    z-index: 10;
+    display: none; /* Hidden by default, shown by JS on larger screens */
+}
+
+.carousel-button:hover {
+    background-color: #444444;
+    transform: translateY(-50%) scale(1.05);
+}
+
+.left-button {
+    left: 0.5rem;
+}
+
+.right-button {
+    right: 0.5rem;
+}
+
+@media (min-width: 768px) {
+    .opinion-card {
+        width: calc(50% - 1.5rem); /* Adjusted width for 2 cards per row with gap */
+    }
+    .carousel-button {
+        display: block; /* Show buttons on larger screens */
+    }
+}
+
+@media (min-width: 1024px) {
+    .opinion-card {
+        width: calc(33.333% - 1.5rem); /* Adjusted width for 3 cards per row with gap */
+    }
+}
+
+/* Contact Section */
+.contact-section {
+    background-color: #1a1a1a;
+    color: var(--secondary-color);
+}
+
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem; /* Reduced gap */
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    font-size: 1.1rem; /* Smaller font size */
+}
+
+.contact-item .icon {
+    color: var(--accent-color);
+    margin-right: 1rem;
+    font-size: 1.3rem; /* Smaller icon size */
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem; /* Reduced gap */
+    margin-top: 1.5rem; /* Reduced margin */
+}
+
+.social-icon {
+    color: var(--accent-color);
+    font-size: 2.5rem; /* Smaller icon size */
+}
+
+@media (min-width: 768px) {
+    .contact-item {
+        font-size: 1.25rem; /* Adjusted for medium screens */
+    }
+}
+
+/* Footer */
+.footer {
+    background-color: var(--primary-color);
+    color: #cccccc;
+    padding: 1rem; /* Reduced padding */
+    text-align: center;
+    font-size: 0.8rem; /* Smaller font size */
+}
